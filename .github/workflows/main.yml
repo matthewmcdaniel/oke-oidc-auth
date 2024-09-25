@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write  # Required to receive OIDC tokens
+  id-token: write # Required to receive OIDC tokens
 
-# This workflow generates an GitHub Actions OIDC token and runs kubectl command in an OKE cluster
+# This workflow generates a GitHub Actions OIDC token and runs kubectl command in an OKE cluster
 jobs:
   oke-oidc:
     runs-on: ubuntu-latest
