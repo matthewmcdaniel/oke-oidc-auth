@@ -38,5 +38,5 @@ jobs:
           kubectl \
           --token=${{ steps.create-oidc-token.outputs.IDTOKEN }} \
           --server="https://129.153.11.84:6443" \
-          auth can-i --list --namespace demo
-          #  --certificate-authority="greg2.cert" \
+          --certificate-authority="greg2.cert" \
+          auth can-i --list
