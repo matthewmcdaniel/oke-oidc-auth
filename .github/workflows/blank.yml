@@ -1,4 +1,4 @@
-name: CI
+name: OKE-OIDC
 
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -15,14 +15,13 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  oidc-demo:
+  oke-oidc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Create OIDC Token
         id: create-oidc-token
         run: |
-          AUDIENCE="my-kubernetes-cluster"
+          AUDIENCE="oke-kubernetes-cluster"
           OIDC_URL_WITH_AUDIENCE="$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUDIENCE"
           IDTOKEN=$(curl \
             -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
@@ -40,5 +39,3 @@ jobs:
           --server="https://129.153.11.84:6443" \
           --insecure-skip-tls-verify \
           auth can-i --list
-
-# --certificate-authority="greg2.cert" \
