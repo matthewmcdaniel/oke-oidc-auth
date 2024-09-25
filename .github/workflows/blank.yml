@@ -18,8 +18,7 @@ jobs:
   oidc-demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: ls
+      - uses: actions/checkout@v2
       - name: Create OIDC Token
         id: create-oidc-token
         run: |
