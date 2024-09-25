@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write # Required to receive OIDC tokens
+  id-token: write  # Required to receive OIDC tokens
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# This workflow generates an GitHub Actions OIDC token and runs kubectl command in an OKE cluster
 jobs:
   oke-oidc:
     runs-on: ubuntu-latest
@@ -28,10 +28,9 @@ jobs:
             -H "Accept: application/json; api-version=2.0" \
             "$OIDC_URL_WITH_AUDIENCE" | jq -r .value)
           echo "::add-mask::${IDTOKEN}"
-          echo "::set-output name=idToken::${IDTOKEN}"
+#          echo "::set-output name=idToken::${IDTOKEN}"
+          echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
 
-          # Print decoded token information for debugging purposes
-          echo $IDTOKEN | jq -R 'split(".") | .[1] | @base64d | fromjson'
       - name: Check Permissions in Kubernetes
         run: |
           kubectl \
