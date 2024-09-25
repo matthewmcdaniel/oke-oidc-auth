@@ -38,5 +38,7 @@ jobs:
           kubectl \
           --token=${{ steps.create-oidc-token.outputs.IDTOKEN }} \
           --server="https://129.153.11.84:6443" \
-          --certificate-authority="greg2.cert" \
+          --insecure-skip-tls-verify \
           auth can-i --list
+
+# --certificate-authority="greg2.cert" \
