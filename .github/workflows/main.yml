@@ -28,7 +28,6 @@ jobs:
             -H "Accept: application/json; api-version=2.0" \
             "$OIDC_URL_WITH_AUDIENCE" | jq -r .value)
           echo "::add-mask::${IDTOKEN}"
-#          echo "::set-output name=idToken::${IDTOKEN}"
           echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
 
       - name: Check Permissions in Kubernetes
