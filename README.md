@@ -44,7 +44,7 @@ oci ce cluster update --cluster-id CLUSTER_OCID --from-json file://./update.json
 ```
 
 ## Step 3 - Egress Network traffic
-Allow the cluster API server to egress traffic by adding an security rule to your subnet security list of your security rules assigned the cluster Kubernetes API endpoint.
+Allow the cluster API server to egress traffic to GitHub by adding an security rule to your subnet security list of your security rules assigned the cluster Kubernetes API endpoint.
 
 ## Step 4 - Kubernetes RBAC
 Configure Role Based Access Control (RBAC) in your Kubernetes cluster to authorize your GitHub Actions workflow to do certain operations (get/watch/list pods and get/watch/list/create/update/delete deployments) using the following YAML file. Update the line "name: actions-oidc:repo:GH-ACCOUNT/REPO:ref:refs/heads/main" with your GitHub Account name and Repository name.
