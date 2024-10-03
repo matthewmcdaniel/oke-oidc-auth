@@ -6,7 +6,7 @@ In this example, we authorize a GitHub Actions workflow to run a command or depl
 Create a new repository in your GitHub account. Write down your account name or organization name, and the name of your repository.
 
 ## Step 2 - OKE cluster
-Create a Kubernetes cluster with OKE (ref. documentation) or select an existing cluster to update. Write down the cluster OCID.
+Create a Kubernetes cluster with OKE (ref. [OKE documentation](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengcreatingclusterusingoke.htm)) or select an existing cluster to update. Write down the cluster OCID.
 
 Then, create a JSON file to update the cluster with the following information:
 * isOpenIdConnectAuthEnabled set to True.
